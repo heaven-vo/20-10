@@ -700,10 +700,10 @@
     <script>
         let rid = null; // request animation id
         const SVG_NS = "http://www.w3.org/2000/svg";
-        const pathlength = shape.getTotalLength();
+        const pathLength = shape.getTotalLength();
 
         let t = 0; // at the begining of the path
-        let lengthAtT = pathlength * t;
+        let lengthAtT = pathLength * t;
 
         let d = shape.getAttribute("d");
 
@@ -794,7 +794,7 @@
 
         function get_T(t, index) {
             let T;
-            lengthAtT = pathlength * t;
+            lengthAtT = pathLength * t;
             if (index > 0) {
                 T =
                     (lengthAtT - subpaths[index].previous.pathLength) /
@@ -1015,7 +1015,7 @@
                         t += 0.0025;
                     }
 
-                    lengthAtT = pathlength * t;
+                    lengthAtT = pathLength * t;
                     for (index = 0; index < subpaths.length; index++) {
                         if (subpaths[index].pathLength >= lengthAtT) {
                             break;
@@ -1071,7 +1071,7 @@
                 head.appendChild(animation);
                 dust.classList.add('dustDef');
                 dust.setAttribute('style', `animation: blink${animationId++} ${fallingTime}s cubic-bezier(.71, .11, .68, .83) infinite ${animationDelay}s`);
-                document.getElementById(node).appendChild(dust);
+                //document.getElementById(node).appendChild(dust);
             }
 
             // yes, I'm doing it manually to get the effect I want.. can be easily changed to render randomly
